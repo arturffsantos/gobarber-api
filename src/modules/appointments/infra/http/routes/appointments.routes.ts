@@ -9,12 +9,13 @@ const appointmentsRouter = Router();
 
 appointmentsRouter.use(ensureAuthenticated);
 
-/* appointmentsRouter.get('/', async (request, response) => {
-  const appointmentsRepository = getCustomRepository(AppointmentsRepository);
-  const appointments = await appointmentsRepository.find();
+appointmentsRouter.get('/', async (request, response) => {
+  const appointmentsRepository = new AppointmentsRepository();
+
+  const appointments = await appointmentsRepository.findAll();
 
   return response.json(appointments);
-}); */
+});
 
 appointmentsRouter.post('/', async (request, response) => {
   const { provider_id, date } = request.body;
