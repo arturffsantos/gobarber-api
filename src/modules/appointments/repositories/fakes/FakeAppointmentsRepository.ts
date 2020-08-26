@@ -26,7 +26,7 @@ class FakeAppointmentsRepository implements IAppoitmentsRepository {
 
     this.appointments.push(appointment);
 
-    return Promise.resolve(appointment);
+    return Promise.resolve({ ...appointment });
   }
 
   public findAll(): Promise<Appointment[]> {
