@@ -18,7 +18,7 @@ class UpdateUserAvatarService {
 
   constructor(
     @inject('UsersRepository') usersRepository: IUsersRepository,
-    @inject('') storageProvider: IStorageProvider,
+    @inject('StorageProvider') storageProvider: IStorageProvider,
   ) {
     this.usersRepository = usersRepository;
     this.storageProvider = storageProvider;
