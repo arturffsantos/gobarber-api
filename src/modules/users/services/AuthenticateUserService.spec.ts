@@ -47,7 +47,7 @@ describe('AuthenticateUser', () => {
 
     const nonExistingUserLogin = { email: 'john@test.com', password: '123456' };
 
-    expect(
+    await expect(
       authenticateUserService.execute(nonExistingUserLogin),
     ).rejects.toBeInstanceOf(AppError);
   });
@@ -72,7 +72,7 @@ describe('AuthenticateUser', () => {
       password: '123456',
     });
 
-    expect(
+    await expect(
       authenticateUserService.execute({
         email: 'john@test.com',
         password: 'wrong_password',
